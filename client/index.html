@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bulls and Cows LAN</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Bulls and Cows (LAN Room)</h1>
+
+      <section class="card">
+        <h2>Connection</h2>
+        <div class="row">
+          <button id="create-room-btn">Create Room (Host)</button>
+        </div>
+        <div class="row">
+          <input id="join-room-input" type="text" maxlength="6" placeholder="Room code (6 digits)" />
+          <button id="join-room-btn">Join as Guest</button>
+        </div>
+        <p id="identity-text">Role: none | Room: -</p>
+        <p id="socket-text">Socket: disconnected</p>
+      </section>
+
+      <section class="card">
+        <h2>Round</h2>
+        <p id="status-text">Status: not in room</p>
+        <p id="turn-text">Turn: -</p>
+        <p id="secret-state-text">Secrets: -</p>
+        <p id="attempt-text">Attempts: -</p>
+        <p id="hint-text" class="hint"></p>
+      </section>
+
+      <section class="card">
+        <h2>Set My Secret</h2>
+        <div class="row">
+          <input id="secret-input" type="password" maxlength="4" placeholder="4 unique digits" />
+          <button id="set-secret-btn">Set Secret</button>
+        </div>
+        <p id="secret-preview">Current secret: -</p>
+      </section>
+
+      <section class="card">
+        <h2>Guess Opponent Secret</h2>
+        <div class="row">
+          <input id="guess-input" type="text" maxlength="4" placeholder="4 unique digits" />
+          <button id="submit-guess-btn">Submit Guess</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Guess History</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Player</th>
+              <th>#</th>
+              <th>Guess</th>
+              <th>Result</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="history-body"></tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2>Actions</h2>
+        <button id="restart-btn">Restart Round</button>
+        <p id="message-text"></p>
+      </section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

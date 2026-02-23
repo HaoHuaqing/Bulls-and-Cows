@@ -1,0 +1,15 @@
+{
+  "name": "bulls-and-cows-lan",
+  "version": "0.1.0",
+  "private": true,
+  "description": "LAN Bulls and Cows room game",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1"
+  }
+}
